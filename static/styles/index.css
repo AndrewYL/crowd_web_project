@@ -1,0 +1,441 @@
+/* Главная страница */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background-color: #f9f9f9;
+    /* Запасной цвет, если изображение не загрузится */
+    position: relative;
+    background-image: url('../images/top-view-rehab-patients-standing-circle.jpg');
+    /* Фоновое изображение */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    /* Добавляем градиент для улучшения читаемости текста */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/top-view-rehab-patients-standing-circle.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+/* Главный слайдер */
+.slider {
+    position: relative;
+    overflow: hidden;
+    margin: 50px 0;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    /* Уменьшаем ширину слайдера */
+    margin: 50px auto;
+    /* Центрируем слайдер */
+    ;
+}
+
+.slider-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.slide-content {
+    text-align: justify;
+    margin: 10px;
+}
+
+.slide-content blockquote {
+    font-size: 1.5rem;
+    margin: 0 0 10px;
+    color: #333;
+}
+
+.slide-content p {
+    font-size: 1rem;
+    margin: 0;
+    color: #555;
+}
+
+.slider-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 128, 0, 0.8); /* Оранжевый цвет с прозрачностью */
+    color: #fff;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background 0.3s ease, transform 0.3s ease;
+    z-index: 10;
+}
+
+.slider-button:hover {
+    background: rgba(255, 128, 0, 1); /* Полностью оранжевый цвет */
+    transform: scale(1.1); /* Увеличиваем кнопку при наведении */
+}
+
+.slider-button.prev {
+    left: 10px;
+}
+
+.slider-button.next {
+    right: 10px;
+}
+
+/* Показ активного слайда */
+.slider-container .slide.active {
+    opacity: 1;
+}
+
+/* Стили для стрелок */
+.slider-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+.slider-button.prev::before {
+    border-width: 10px 10px 10px 0;
+    border-color: transparent #fff transparent transparent;
+}
+
+.slider-button.next::before {
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent #fff;
+}
+
+/* Как это работает? */
+.how-it-works {
+    padding: 50px 20px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.how-it-works h2 {
+    margin-bottom: 30px;
+    /* color: #4965D6; */
+}
+
+.steps {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.step {
+    flex: 1;
+    min-width: 300px;
+    margin: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.step-image {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .step-image img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .step-content {
+    flex: 2;
+    text-align: left;
+  }
+  
+  .step-content h3 {
+    margin-bottom: 10px;
+  }
+  
+  .step-content p {
+    margin: 0;
+  }
+
+/* Блок с популярными идеями */
+.popular-ideas {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.popular-ideas h2 {
+    margin-bottom: 30px;
+}
+
+.idea-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .idea-card {
+    flex: 1;
+    min-width: 300px;
+    margin: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .idea-image {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .idea-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .idea-content {
+    flex: 2;
+    text-align: left;
+  }
+  
+  .idea-content h3 {
+    font-size: 1.3rem;
+    margin: 15px 0 10px;
+    
+  }
+  
+  .idea-content p {
+    margin: 10px 0 20px;
+    color: #555;
+  }
+  
+  .idea-content .cta-button {
+    display: block;
+    margin: 0 0 20px;
+  }
+
+/* Блок "Истории успеха" */
+.success-stories {
+    padding: 50px 20px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.success-stories h2 {
+    margin-bottom: 30px;
+}
+
+.story-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.story-card {
+    flex: 1;
+    min-width: 300px;
+    margin: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.story-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 200px; /* Фиксированная высота для изображений */
+    object-fit: cover; /* Сохранение пропорций изображения */
+}
+
+.story-card .story-content {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.story-card h3 {
+    font-size: 1.3rem;
+    margin: 15px 0 10px;
+    text-align: center;
+}
+
+.story-card p {
+    margin: 10px 0 20px;
+    color: #555;
+    margin: 20px;
+}
+
+/* Комьюнити и события */
+.community-events {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.community-events h2 {
+    margin-bottom: 30px;
+}
+
+.event-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.event-card {
+    flex: 1;
+    min-width: 300px;
+    margin: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    text-align: left;
+}
+
+.event-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.event-card h3 {
+    font-size: 1.3rem;
+    margin: 15px 20px 10px;
+}
+
+.event-card p {
+    margin: 10px 20px 20px;
+    color: #555;
+}
+
+.event-card .cta-button {
+    display: block;
+    margin: 0 auto 20px;
+}
+
+/* Наши партнеры */
+.partners {
+    padding: 50px 20px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.partners h2 {
+    margin-bottom: 30px;
+}
+
+.partner-logos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.partner-logos img {
+    max-width: 150px;
+    margin: 10px;
+    min-width: 100px;
+}
+
+.subscribe-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+}
+
+/* Форма подписки на новости */
+.subscribe {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+
+}
+
+.subscribe h2 {
+    margin-bottom: 30px;
+}
+
+.subscribe form {
+
+    flex-wrap: wrap;
+}
+
+.subscribe input[type="email"] {
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 10px;
+    flex: 1;
+    min-width: 200px;
+}
+
+/* Уведомление */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #FFA040;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1rem;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateX(100%);
+    max-width: 300px; /* Ограничиваем ширину уведомления */
+    width: 80%; /* Уменьшаем ширину уведомления */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Добавляем тень для уведомления */
+}
+
+.notification.show {
+    opacity: 1;
+    transform: translateX(0);
+}

@@ -1,0 +1,338 @@
+html {
+    scroll-behavior: smooth;
+}
+
+/* * {
+    scrollbar-width: thin;
+    scrollbar-color: #674727#FF8000;
+} */
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+    background-color: #FF8000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #926436, #674727);
+}
+/* Общие стили */
+body {
+    margin: 0;
+    font-family: 'Arial Black', sans-serif;
+    overflow-x: hidden;
+    background-color: #f9f9f9;
+}
+
+body.no-scroll {
+    overflow: hidden; /* Запрещаем прокрутку */
+}
+
+h1{
+    color: #333;
+}
+
+h2 {
+    color: #4965D6;
+}
+
+h3 {
+    color: #1533AD;
+}
+
+main {
+    margin-top: 60px; /* Высота отступа равна высоте меню */
+}
+
+/* Навигационная панель */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #FF8000;
+    padding: 20px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.burger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20px;
+    width: 25px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1000;
+    transition: all 0.3s ease-in-out;
+}
+
+.burger-menu .line {
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Анимация для открытого состояния */
+.burger-menu.open .line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.burger-menu.open .line:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu.open .line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.logo-title {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.logo img {
+    max-height: 40px;
+}
+
+.site-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-left: 10px;
+    color: #fff;
+}
+
+/* Стили для бокового меню */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #cb573a;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease-in-out;
+    z-index: 999;
+    padding-top: 50px;
+    overflow-y: auto;
+}
+
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.side-menu li {
+    padding: 15px 20px;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+}
+
+.side-menu li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+    display: block;
+}
+
+.side-menu li a:hover {
+    color: #ff8000;
+}
+
+/* Активное состояние меню */
+.side-menu.open {
+    left: 0;
+}
+
+/* Стили для подменю */
+.submenu-container {
+    position: relative;
+}
+
+.submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #cb573a;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out; /* Анимация для открытия и закрытия */
+}
+
+.submenu-container.open .submenu {
+    max-height: 1000px; /* Устанавливаем достаточно большое значение для плавного раскрытия */
+    
+}
+
+.submenu li {
+    padding: 10px 15px;
+    border-bottom: none;
+}
+
+.submenu li:not(:last-child) {
+    border-bottom: 1px solid #ddd;
+}
+
+.submenu li a {
+    font-size: 0.9rem;
+    color: #fff;
+}
+
+.submenu li a:hover {
+    color: #ff8000;
+}
+
+/* Индикатор треугольника */
+.arrow {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 5px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #fff;
+    transition: transform 0.3s ease;
+}
+
+/* Поворот треугольника при открытии подменю */
+.submenu-container.open .arrow {
+    transform: rotate(180deg);
+}
+
+/* Выравнивание ссылки с индикатором треугольника по центру */
+#projects-menu-toggle {
+    display: flex;
+    align-items: center;
+}
+
+/* Затемняющий фон */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
+    backdrop-filter: blur(2px);
+}
+
+.overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Футер */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin: 10px;
+}
+
+.footer-section h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #ff8000;
+}
+
+.footer-section p {
+    margin-bottom: 5px;
+}
+
+.social-links a {
+    color: #007BFF;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #0056b3;
+}
+
+.social-links img {
+    width: 50px;
+    height: 50px;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #555;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+/* Общие стили кнопок */
+.cta-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #00BD39; /* Оранжевый цвет */
+    color: #fff;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: -1;
+}
+
+.cta-button:hover {
+    background-color: #238D43; /* Темный оранжевый цвет при наведении */
+    transform: scale(1.05);
+}
+
+.cta-button:hover::before {
+    transform: translateX(0);
+}
+
+.cta-button:active {
+    transform: scale(0.98);
+}

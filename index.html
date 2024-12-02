@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Have Idea</title>
+  <link rel="stylesheet" href="static/styles/style.css">
+  <link rel="stylesheet" href="static/styles/index.css">
+</head>
+<body>
+  <!-- Затемняющий фон -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- Навигационная панель -->
+  <header class="navbar">
+    <div class="burger-menu" id="burger-menu" aria-label="Открыть меню">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+    <div class="logo-title">
+      <div class="logo">
+        <img src="static/images/logo1.png" alt="Логотип Have Idea">
+      </div>
+      <span class="site-title">Have Idea</span>
+    </div>
+  </header>
+
+  <!-- Боковое меню -->
+  <nav class="side-menu">
+    <ul>
+      <li><a href="index.html">Главная</a></li>
+      <li class="submenu-container">
+        <a href="#projects" id="projects-menu-toggle">Проекты <span class="arrow"></span></a>
+        <ul class="submenu">
+          <li><a href="create-projects.html">Создать проект</a></li>
+          <li><a href="all-projects.html">Все проекты</a></li>
+        </ul>
+      </li>
+      <li><a href="about.html">О нас</a></li>
+    </ul>
+  </nav>
+
+  <!-- Основной контент -->
+  <main>
+    <!-- Герой-секция -->
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <h1>Ваши идеи - наша сила!</h1>
+      </div>
+    </section>
+
+    <!-- Главный слайдер -->
+    <section class="slider">
+      <div class="slider-container">
+        <div class="slide">
+          <div class="slide-content">
+            <blockquote>ПАО «Химпром»</blockquote>
+            <p>В ПАО «Химпром» система BrainForce была внедрена для автоматизации внутренней работы более чем 3500 сотрудников над идеями, проектами, рационализаторскими предложениями и построения постоянного процесса инноваций. Работа ведется в рамках 11 основных разделов по 5-10 рубрикам в каждом и охватывает улучшение всего спектра деятельности организации: от производственных инноваций до ИТ-оборудования и развития персонала. При этом параллельно используются несколько методологий, поддерживаемых платформой BrainForce: работа с идеями; работа с инновационными проектами; выявление проблем; сбор и накопление знаний; проведение инновационных конкурсов.</p>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="slide-content">
+            <blockquote>X5 Retail Group</blockquote>
+            <p>Система BrainForce была внедрена для автоматизации внутренней работы аудитории в несколько десятков тысяч сотрудников с идеями и предложениями и построения постоянного процесса инноваций: их сбора, автоматической и краудсорсинговой оценки, коллективной и командной доработки, экспертной селекции и последующего мониторинга внедрения. Кроме того, отдельный акцент был сделан на существующую в BrainForce систему мотивации и оценки самих участников и интеграцию этой системы в общую структуру премирования сотрудников, формирования кадрового резерва и принятия иных решений в области HR.</p>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="slide-content">
+            <blockquote>РАНХиГС</blockquote>
+            <p>Ситуационный центр академии является информационно-аналитическим органом, осуществляющим поддержку принятия решений экспертных и иных групп в соответствии с оперативными и стратегическими задачами академии. Система BrainForce позволила привлечь широкое экспертное сообщество для коллективного обсуждения и поиска оптимальных решений, что существенно повысило результативность и снизило временные затраты на проработку каждой проблемы.Проект показал возможности успешного использования платформы BrainForce для привлечения экспертного сообщества и работы с ним, а также повысил эффективность функционирования ситуационного центра в целом. Выработка решений по важным вопросам стала комплексной, осуществляемой по процессу и алгоритмам, предоставляемым платформой BrainForce.</p>
+          </div>
+        </div>
+      </div>
+      <button class="slider-button prev" aria-label="Предыдущий слайд"></button>
+      <button class="slider-button next" aria-label="Следующий слайд"></button>
+    </section>
+
+    <section class="how-it-works" id="how-it-works">
+      <h2>Как это работает?</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-image">
+            <img src="static/images/shag1.png" alt="Шаг 1">
+          </div>
+          <div class="step-content">
+            <h3>Шаг 1: Поделитесь вашей идеей</h3>
+            <p>Опишите свою идею и прикрепите необходимые материалы.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-image">
+            <img src="static/images/shag2.png" alt="Шаг 2">
+          </div>
+          <div class="step-content">
+            <h3>Шаг 2: Присоединяйтесь к команде</h3>
+            <p>Найдите и пригласите специалистов для реализации вашей идеи.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-image">
+            <img src="static/images/shag3.jpg" alt="Шаг 3">
+          </div>
+          <div class="step-content">
+            <h3>Шаг 3: Запускайте проект и отслеживайте его прогресс</h3>
+            <p>Мониторите развитие вашего проекта и вносите необходимые корректировки.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+
+    <!-- Блок с популярными идеями -->
+    <section class="popular-ideas" id="popular-ideas">
+      <h2>Популярные идеи</h2>
+      <div class="idea-cards">
+        <div class="idea-card">
+          <div class="idea-image">
+            <img src="static/images/idea1.png" alt="Идея 1">
+          </div>
+          <div class="idea-content">
+            <h3>Эко-проект: Чистая планета</h3>
+            <p>Создание сети волонтеров для очистки окружающей среды и организации образовательных мероприятий.</p>
+            <button class="cta-button">Принять участие</button>
+          </div>
+        </div>
+        <div class="idea-card">
+          <div class="idea-image">
+            <img src="static/images/idea2.jpg" alt="Идея 2">
+          </div>
+          <div class="idea-content">
+            <h3>Технология будущего</h3>
+            <p>Разработка мобильного приложения для управления умным домом через голосовые команды.</p>
+            <button class="cta-button">Принять участие</button>
+          </div>
+        </div>
+        <div class="idea-card">
+          <div class="idea-image">
+            <img src="static/images/idea3.png" alt="Идея 3">
+          </div>
+          <div class="idea-content">
+            <h3>Образовательная платформа</h3>
+            <p>Создание онлайн-курсов для повышения квалификации в IT-сфере.</p>
+            <button class="cta-button">Принять участие</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+
+    <!-- Блок "Истории успеха" -->
+    <section class="success-stories" id="success-stories">
+      <h2>Истории успеха</h2>
+      <div class="story-cards">
+        <div class="story-card">
+          <img src="static/images/history1.png" alt="История 1">
+          <h3>Как идея «Умный органайзер» превратилась в продукт «MyTaskMaster»</h3>
+          <p>Идея «Умный органайзер», предложенная участником Have Idea, превратилась в продукт «MyTaskMaster», который привлек 1000 пользователей всего за три месяца после запуска. Идея заключалась в создании приложения, которое не просто было бы списком задач, а использовало бы искусственный интеллект для оптимизации расписаний и напоминаний. Команда разработчиков собралась и в течение нескольких месяцев провела множество опросов пользователей, чтобы определить наиболее востребованные функции.</p>
+            <p>После успешного тестирования бета-версии, приложение было запущено в App Store и Google Play. Уникальный дизайн, интуитивно понятный интерфейс и возможность интеграции с календарями сделали его популярным среди студентов и профессионалов, стремящихся улучшить свою продуктивность. Вскоре «MyTaskMaster» стал одним из самых скачиваемых приложений в своей категории, вдохновляя других участников платформы Have Idea на реализацию своих идей.</p>
+        </div>
+        <div class="story-card">
+          <img src="static/images/history2.jpg" alt="История 2">
+          <h3>Идея «Смарт-сад» и ее реализация</h3>
+          <p>Идея «Смарт-сад», реализованная командой на платформе, стала успешным стартапом. Эта идея возникла в результате наблюдений за недостатком информации и ресурсов для городских садоводов. Команда решила создать устройство, которое собирало бы данные о состоянии растений и окружающей среды, и позволяло бы пользователям получать рекомендации по уходу через приложение на смартфоне.</p>
+          <p>После привлечения инвестиций и разработки прототипа, стартап получил одобрение от нескольких экологических организаций и успешно закончил краудфандинговую кампанию. «Смарт-сад» быстро стал любимым аксессуаром среди городских любителей растений, а команда приняла участие в нескольких выставках, что помогло привлечь дополнительное внимание к продукту. В результате, стартап не только сумел обеспечить устойчивый доход, но и стал активным участником в продвижении идеи городского зеленого хозяйства.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Комьюнити и события -->
+    <section class="community-events" id="community-events">
+      <h2>Комьюнити и события</h2>
+      <div class="event-cards">
+        <div class="event-card">
+          <img src="static/images/vebinar.png" alt="Событие 1">
+          <h3>Вебинар: Как создавать успешные идеи</h3>
+          <p>Дата: 10 мая 2024</p>
+          <button class="cta-button">Зарегистрироваться</button>
+        </div>
+        <div class="event-card">
+          <img src="static/images/vstrecha.png" alt="Событие 2">
+          <h3>Встреча участников Have Idea</h3>
+          <p>Дата: 20 мая 2024</p>
+          <button class="cta-button">Зарегистрироваться</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Наши партнеры -->
+    <section class="partners" id="partners">
+      <h2>Наши партнеры</h2>
+      <div class="partner-logos">
+        <img src="static/images/icons8-html.svg" alt="Партнер 1">
+        <img src="static/images/icons8-css.svg" alt="Партнер 2">
+        <img src="static/images/icons8-js.svg" alt="Партнер 3">
+      </div>
+    </section>
+
+    <!-- Форма подписки на новости -->
+     <div class="subscribe-block">
+      <section class="subscribe" id="subscribe">
+        <h2>Будьте в курсе всех новостей и обновлений!</h2>
+        <form id="subscribe-form">
+          <input type="email" placeholder="Введите ваш email" required>
+          <button type="submit" class="cta-button">Подписаться</button>
+        </form>
+      </section>
+     </div>
+  </main>
+
+  <!-- Уведомление -->
+  <div id="subscribe-notification" class="notification" style="display: none;">
+    Спасибо за подписку!
+  </div>
+
+  <!-- Футер -->
+  <footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>Контакты</h3>
+            <p>Email: info@haveidea.com</p>
+            <p>Телефон: +7 800 555 35-35</p>
+            <p>Адрес: Улица Идеи, 123, Город Креативный</p>
+        </div>
+        <div class="footer-section">
+            <h3>Социальные сети</h3>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><img src="static/images/facebook-icons.svg" alt="Facebook"></a>
+                <a href="#" aria-label="Twitter"><img src="static/images/xtwitter-icons.svg" alt="Twitter"></a>
+                <a href="#" aria-label="Telegram"><img src="static/images/tg-icons.svg" alt="Telegram"></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 Have Idea. Все права защищены.</p>
+    </div>
+</footer>
+
+  <!-- Подключение JavaScript -->
+  <script src="static/scripts/script.js"></script>
+</body>
+</html>
