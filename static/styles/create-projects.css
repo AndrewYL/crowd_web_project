@@ -1,0 +1,201 @@
+/* static/styles/create-projects.css */
+
+h1 {
+    text-align: center;
+    margin-top: 50px;
+    color: #333;
+}
+
+/* Фоновая страница */
+.full-page-background {
+    position: relative;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ffcc00, #4965D6,#ff8000 , #00BD39); /* Градиентный фон */
+    background-size: 400% 400%; /* Создаем эффект движения градиента */
+    animation: gradientAnimation 15s ease infinite; /* Анимация градиента */
+    overflow: hidden;
+}
+
+.full-page-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit; /* Наследуем фон */
+    filter: blur(10px) brightness(0.7); /* Блюр и затемнение фона */
+    z-index: 0;
+}
+
+/* Анимация градиента */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Форма создания проекта */
+.form-container {
+    position: relative;
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.9); /* Полупрозрачный фон */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.project-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group input[type="number"],
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+    font-size: 1rem;
+    color: #555;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="date"]:focus,
+.form-group input[type="number"]:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #FF8000;
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-group select {
+    padding: 10px;
+    background-color: #fff;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="20" height="20" fill="currentColor"><path d="M207.029 381.476L12.686 187.132c-9.333-9.373-9.373-24.569 0-33.941l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L224 303.455l151.267-151.267c9.373-9.373 24.569-9.373 33.941 0l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.373-24.569 9.373-33.941 0z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px 16px;
+}
+
+.form-group select::-ms-expand {
+    display: none;
+}
+
+.form-group input[type="file"] {
+    display: none;
+}
+
+.form-group .file-count {
+    display: inline-block;
+    background-color: #FF8000;
+    border-radius: 5px;
+    padding: 10px 20px;
+    color: #fff;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-group .file-count:hover {
+    background-color: #FF6347;
+}
+
+.cta-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #FF8000; /* Оранжевый цвет */
+    color: #fff;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    width: 100%;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: -1;
+}
+
+.cta-button:hover {
+    background-color: #FF6347; /* Темный оранжевый цвет при наведении */
+    transform: scale(1.05);
+}
+
+.cta-button:hover::before {
+    transform: translateX(0);
+}
+
+.cta-button:active {
+    transform: scale(0.98);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .form-container {
+        margin: 50px auto;
+        padding: 30px;
+    }
+
+    .project-form {
+        padding: 0;
+    }
+
+    .form-group label {
+        font-size: 0.9rem;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="date"],
+    .form-group input[type="number"],
+    .form-group textarea,
+    .form-group select {
+        font-size: 0.9rem;
+    }
+
+    .cta-button {
+        font-size: 0.9rem;
+    }
+}
+
+#error-messages p {
+    margin: 5px 0;
+}

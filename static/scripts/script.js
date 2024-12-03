@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const isSubmenu = event.target.closest('.submenu-container');
         if (event.target.tagName === 'A' && !isSubmenu && event.target !== projectsMenuToggle) {
             toggleMenu();
-          
         }
     });
   
@@ -90,27 +89,85 @@ document.addEventListener('DOMContentLoaded', function () {
     // Запуск автоматического переключения слайдов
     startAutoSlide();
   
-    // Обработка формы подписки
-    const subscribeForm = document.getElementById('subscribe-form');
-    const subscribeNotification = document.getElementById('subscribe-notification');
-  
-    subscribeForm.addEventListener('submit', function (e) {
-        e.preventDefault(); // Предотвращаем стандартное поведение формы
-  
-        // Здесь можно добавить код для отправки данных формы на сервер
-        // Например, с использованием fetch или XMLHttpRequest
-  
-        // Показываем уведомление
-        subscribeNotification.style.display = 'block';
-        subscribeNotification.classList.add('show');
-  
-        // Скрываем уведомление через 3 секунды
+ // Обработка формы подписки
+const subscribeForm = document.getElementById('subscribe-form');
+const subscribeNotification = document.getElementById('subscribe-notification');
+
+subscribeForm.addEventListener('submit', function (e) {
+    e.preventDefault(); // Предотвращаем стандартное поведение формы
+
+    // Показываем уведомление
+    subscribeNotification.style.display = 'block';
+    subscribeNotification.classList.add('show');
+    subscribeNotification.classList.remove('hide');
+
+    // Скрываем уведомление через 3 секунды
+    setTimeout(() => {
+        subscribeNotification.classList.remove('show');
+        subscribeNotification.classList.add('hide');
         setTimeout(() => {
-            subscribeNotification.classList.remove('show');
-            setTimeout(() => {
-                subscribeNotification.style.display = 'none';
-            }, 300); // Скрываем после завершения анимации
-        }, 3000);
-    });
+            subscribeNotification.style.display = 'none';
+        }, 300); // Скрываем после завершения анимации
+    }, 3000);
+});
+document.getElementById('project-files').addEventListener('change', function() {
+    const fileCount = this.files.length;
+    document.getElementById('file-count').textContent = fileCount > 0 ? `Выбрано файлов: ${fileCount}` : 'Выберите файлы';
+  });
+  const createProjectForm = document.getElementById('create-project-form');
+const errorMessages = document.getElementById('error-messages');
+
+createProjectForm.addEventListener('submit', function (e) {
+    e.preventDefault(); // Предотвращаем стандартное поведение формы
+
+    // Очистка предыдущих сообщений об ошибках
+    errorMessages.innerHTML = '';
+
+    // Валидация формы
+    let isValid = true;
+    const projectName = document.getElementById('project-name').value.trim();
+    const projectDescription = document.getElementById('project-description').value.trim();
+    const projectCategory = document.getElementById('project-category').value;
+    const projectStartDate = document.getElementById('project-start-date').value;
+    const projectEndDate = document.getElementById('project-end-date').value;
+
+    if (projectName === '') {
+        isValid = false;
+        errorMessages.innerHTML += '<p>Пожалуйста, введите название проекта.</p>';
+    }
+
+    if (projectDescription === '') {
+        isValid = false;
+        errorMessages.innerHTML += '<p>Пожалуйста, введите описание проекта.</p>';
+    }
+
+    if (projectCategory === '') {
+        isValid = false;
+        errorMessages.innerHTML += '<p>Пожалуйста, выберите категорию проекта.</p>';
+    }
+
+    if (projectStartDate === '') {
+        isValid = false;
+        errorMessages.innerHTML += '<p>Пожалуйста, выберите дату начала проекта.</p>';
+    }
+
+    if (projectEndDate === '') {
+        isValid = false;
+        errorMessages.innerHTML += '<p>Пожалуйста, выберите дату окончания проекта.</p>';
+    }
+
+    if (new Date(projectStartDate) > new Date(projectEndDate)) {
+        isValid = false;
+        errorMessages.innerHTML += '<p>Дата начала проекта не может быть позже даты окончания.</p>';
+    }
+
+    if (isValid) {
+        // Если форма валидна, можно отправить данные на сервер или выполнить другие действия
+        alert('Форма успешно отправлена!');
+        // Очистка формы после отправки
+        createProjectForm.reset();
+        document.getElementById('file-count').textContent = 'Выберите файлы';
+    }
+});
   });
   

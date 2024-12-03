@@ -433,9 +433,15 @@
     max-width: 300px; /* Ограничиваем ширину уведомления */
     width: 80%; /* Уменьшаем ширину уведомления */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Добавляем тень для уведомления */
+    opacity: 0; /* Начальное состояние прозрачности */
 }
 
 .notification.show {
     opacity: 1;
     transform: translateX(0);
+}
+
+.notification.hide {
+    opacity: 0;
+    transform: translateX(100%);
 }
