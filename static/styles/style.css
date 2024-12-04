@@ -336,3 +336,55 @@ footer {
 .cta-button:active {
     transform: scale(0.98);
 }
+
+
+/* Анимация появления стрелки */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Анимация исчезания стрелки */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+}
+
+.scroll-up {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 30px solid #007bff; /* Цвет треугольника */
+    cursor: pointer;
+    display: none;
+    transition: opacity 0.3s ease;
+    animation: fadeIn 0.5s ease-out forwards; /* Анимация появления */
+}
+
+.scroll-up:hover {
+    border-bottom-color: #0056b3; /* Изменение цвета при наведении */
+}
+
+.scroll-up:active {
+    border-bottom-color: #003366; /* Изменение цвета при нажатии */
+}
+
+.scroll-up.fade-out {
+    animation: fadeOut 0.5s ease-out forwards; /* Анимация исчезания */
+}

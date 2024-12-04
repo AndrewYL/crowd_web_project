@@ -1,0 +1,83 @@
+/* Основные стили для страницы "О нас" */
+/* Стили для заголовка */
+main h1 {
+    font-size: 3rem;
+    color: #4965D6; /* Оранжевый цвет */
+    text-align: center;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  main h1::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background-color: #FF8000; /* Оранжевый цвет */
+    border-radius: 2px;
+  }
+/* Общий стиль для секций */
+.about-us, .our-goals, .advantages, .team, .history {
+    margin: 40px 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Заголовки секций */
+  .about-us h2, .our-goals h2, .advantages h2, .team h2, .history h2 {
+    color: #1533AD;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Списки в секциях */
+  .about-us ul, .our-goals ul, .advantages ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+  
+  /* Стили для команды */
+  .team-members {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .team-member {
+    text-align: center;
+    margin: 20px;
+    width: 200px;
+  }
+  
+  .team-member img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+  
+  .team-member h3 {
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .team-member p {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  /* Дополнительные стили для адаптивности */
+  @media (max-width: 768px) {
+    .team-members {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  

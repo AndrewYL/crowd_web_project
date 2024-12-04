@@ -46,4 +46,24 @@ document.addEventListener('DOMContentLoaded', function () {
     submenuContainer.addEventListener('click', (e) => {
         e.stopPropagation();
     });
+
+    const scrollUp = document.getElementById('scrollUp');
+
+// Показываем стрелку, когда страница прокручена вниз на 300px
+window.addEventListener('scroll', () => {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        scrollUp.style.display = 'block';
+        scrollUp.classList.remove('fade-out');
+        scrollUp.classList.add('fade-in');
+    } else {
+        scrollUp.classList.remove('fade-in');
+        scrollUp.classList.add('fade-out');
+    }
+});
+
+// При клике на стрелку прокручиваем страницу вверх
+scrollUp.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
 });
