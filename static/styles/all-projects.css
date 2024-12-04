@@ -1,54 +1,94 @@
 .projects-grid {
-    display: flex;
-    overflow-x: auto;
-    gap: 20px;
-    padding: 20px;
-    scroll-snap-type: x mandatory;
-  }
-  
-  .project-card {
-    flex: 0 0 auto;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.2s;
-    scroll-snap-align: start;
-    min-width: 250px;
-  }
-  
-  .project-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .project-card img {
-    width: 100%;
-    height: auto;
-  }
-  
-  .project-card h2 {
-    margin: 15px 15px 0;
-    font-size: 1.5em;
-    color: #333;
-  }
-  
-  .project-card p {
-    margin: 10px 15px;
-    color: #666;
-  }
-  
-  .project-link {
-    display: inline-block;
-    margin: 15px;
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.2s;
-  }
-  
-  .project-link:hover {
-    background-color: #0056b3;
-  }
-  
+  display: grid;
+  grid-template-columns: 1fr; /* Один столбец */
+  gap: 20px;
+  padding: 20px;
+}
+
+.project-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s;
+  display: flex;
+  align-items: flex-start;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-image img {
+  width: 300px; /* Фиксированная ширина изображения */
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px 0 0 8px; /* Скругление углов слева */
+}
+
+.project-content {
+  padding: 15px;
+  flex: 1;
+}
+
+.project-content h2 {
+  margin: 0 0 10px;
+  font-size: 1.5em;
+  color: #333;
+}
+
+.project-content p {
+  margin: 0 0 10px;
+  color: #666;
+}
+
+.project-details {
+  margin-top: 10px;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+.project-details.show {
+  opacity: 1;
+  max-height: 500px; /* Устанавливаем достаточно большое значение для плавного раскрытия */
+}
+
+.project-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #00BD39; /* Оранжевый цвет */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.project-link:hover {
+  background-color: #238D43; /* Темный оранжевый цвет при наведении */
+}
+
+/* Стили для заголовка */
+main h1 {
+  font-size: 3rem;
+  color: #4965D6; /* Оранжевый цвет */
+  text-align: center;
+  margin-bottom: 40px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+main h1::before {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background-color: #FF8000; /* Оранжевый цвет */
+  border-radius: 2px;
+}
