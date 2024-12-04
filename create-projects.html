@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="static/styles/style.css">
   <link rel="stylesheet" href="static/styles/create-projects.css">
 </head>
-<body>
+<body class="create-projects">
   <!-- Затемняющий фон -->
   <div class="overlay" id="overlay"></div>
 
@@ -45,31 +45,25 @@
   <main class="full-page-background">
     <div class="form-container">
       <h1>Создать проект</h1>
-      <div id="error-messages" style="color: red; margin-bottom: 20px;"></div>
-      <form id="create-project-form" class="project-form">
+      <!-- Контейнер для отображения ошибок -->
+      <div id="error-messages" class="error-messages"></div>
+      <!-- Форма создания проекта -->
+      <form id="create-project-form">
         <div class="form-group">
-          <label for="project-name">Название проекта</label>
-          <input type="text" id="project-name" name="project-name" required aria-required="true">
+          <label for="project-name">Название проекта <span class="required">*</span></label>
+          <input type="text" id="project-name" name="project-name" required>
         </div>
         <div class="form-group">
-          <label for="project-short-description">Краткое описание (опционально)</label>
-          <textarea id="project-short-description" name="project-short-description" rows="3" placeholder="Краткое описание проекта" aria-label="Краткое описание проекта"></textarea>
+          <label for="project-short-description">Краткое описание</label>
+          <textarea id="project-short-description" name="project-short-description" rows="3" placeholder="Краткое описание проекта"></textarea>
         </div>
         <div class="form-group">
-          <label for="project-description">Описание проекта</label>
-          <textarea id="project-description" name="project-description" rows="5" required aria-required="true"></textarea>
+          <label for="project-description">Описание проекта <span class="required">*</span></label>
+          <textarea id="project-description" name="project-description" rows="5" required></textarea>
         </div>
         <div class="form-group">
-          <label for="project-goals">Цели проекта (опционально)</label>
-          <textarea id="project-goals" name="project-goals" rows="3" placeholder="Цели проекта" aria-label="Цели проекта"></textarea>
-        </div>
-        <div class="form-group">
-          <label for="project-results">Ожидаемые результаты (опционально)</label>
-          <textarea id="project-results" name="project-results" rows="3" placeholder="Ожидаемые результаты" aria-label="Ожидаемые результаты"></textarea>
-        </div>
-        <div class="form-group">
-          <label for="project-category">Категория</label>
-          <select id="project-category" name="project-category" required aria-required="true">
+          <label for="project-category">Категория <span class="required">*</span></label>
+          <select id="project-category" name="project-category" required>
             <option value="">Выберите категорию</option>
             <option value="технологии">Технологии</option>
             <option value="образование">Образование</option>
@@ -79,29 +73,30 @@
           </select>
         </div>
         <div class="form-group">
-          <label for="project-start-date">Дата начала</label>
-          <input type="date" id="project-start-date" name="project-start-date" required aria-required="true">
+          <label for="project-start-date">Дата начала <span class="required">*</span></label>
+          <input type="date" id="project-start-date" name="project-start-date" required>
         </div>
         <div class="form-group">
-          <label for="project-end-date">Дата окончания</label>
-          <input type="date" id="project-end-date" name="project-end-date" required aria-required="true">
+          <label for="project-end-date">Дата окончания <span class="required">*</span></label>
+          <input type="date" id="project-end-date" name="project-end-date" required>
         </div>
         <div class="form-group">
-          <label for="project-budget">Бюджет (опционально)</label>
-          <input type="number" id="project-budget" name="project-budget" min="0" aria-label="Бюджет">
+          <label for="project-budget">Бюджет (руб.)</label>
+          <input type="number" id="project-budget" name="project-budget" min="0">
         </div>
         <div class="form-group">
-          <label for="project-team">Команда (опционально)</label>
-          <textarea id="project-team" name="project-team" rows="3" placeholder="Введите имена участников через запятую" aria-label="Команда"></textarea>
+          <label for="project-team">Команда</label>
+          <textarea id="project-team" name="project-team" rows="3" placeholder="Введите участников через запятую"></textarea>
         </div>
         <div class="form-group">
-          <label for="project-contact-info">Контактная информация (опционально)</label>
-          <input type="text" id="project-contact-info" name="project-contact-info" placeholder="Email, телефон, сайт" aria-label="Контактная информация">
+          <label for="project-contact-info">Контактная информация</label>
+          <input type="text" id="project-contact-info" name="project-contact-info" placeholder="Email, телефон, сайт">
         </div>
         <div class="form-group">
-          <label for="project-files">Файлы и документы (опционально)</label>
-          <input type="file" id="project-files" name="project-files" multiple aria-label="Файлы и документы">
-          <span id="file-count" class="file-count">Выберите файлы</span>
+          <label for="project-files">Файлы</label>
+          <input type="file" id="project-files" name="project-files" multiple style="display: none;">
+          <div id="file-select" class="file-select">Выберите файлы</div>
+          <div id="file-names" class="file-names"></div> <!-- Новый элемент для имен файлов -->
         </div>
         <button type="submit" class="cta-button">Создать проект</button>
       </form>
@@ -120,18 +115,19 @@
         <div class="footer-section">
             <h3>Социальные сети</h3>
             <div class="social-links">
-                <a href="#" aria-label="Facebook"><img src="static/images/facebook.svg" alt="Facebook"></a>
-                <a href="#" aria-label="Twitter"><img src="static/images/x.svg" alt="Twitter"></a>
-                <a href="#" aria-label="Telegram"><img src="static/images/tg.svg" alt="Telegram"></a>
+                <a href="#" aria-label="Facebook"><img src="static/images/facebook-icons.svg" alt="Facebook"></a>
+                <a href="#" aria-label="Twitter"><img src="static/images/xtwitter-icons.svg" alt="Twitter"></a>
+                <a href="#" aria-label="Telegram"><img src="static/images/tg-icons.svg" alt="Telegram"></a>
             </div>
         </div>
     </div>
     <div class="footer-bottom">
         <p>&copy; 2024 Have Idea. Все права защищены.</p>
     </div>
-  </footer>
+</footer>
 
   <!-- Подключение JavaScript -->
   <script src="static/scripts/script.js"></script>
+  <script src="static/scripts/create-projects.js"></script>
 </body>
 </html>
